@@ -32,7 +32,8 @@ contract Primitives {
     uint public defaultUint; // 0
     int public defaultInt; // 0
     address public defaultAddr; // 0x0000000000000000000000000000000000000000
-
+    
+    // New values
     address public newAddr = 0x0000000000000000000000000000000000000000;
     int public neg = -12;
     uint8 public newU = 0;
