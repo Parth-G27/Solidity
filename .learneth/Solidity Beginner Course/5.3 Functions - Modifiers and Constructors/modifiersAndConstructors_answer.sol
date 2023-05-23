@@ -33,6 +33,19 @@ contract FunctionModifier {
     function changeOwner(address _newOwner) public onlyOwner validAddress(_newOwner) {
         owner = _newOwner;
     }
+    
+    modifier biggerThan0(uint y) {
+        require(y > 0, "Not bigger than x");
+        _;
+    }
+    
+    modifier increaseXbyY(uint y) {
+        _;
+        x = x + y;
+    }
+
+    function increaseX(uint y) public onlyOwner biggerThan0(y) increaseXbyY(y){
+    }
 
     // Modifiers can be called before and / or after a function.
     // This modifier prevents a function from being called while
@@ -51,13 +64,5 @@ contract FunctionModifier {
         if (i > 1) {
             decrement(i - 1);
         }
-    }
-    modifier new_modifier(uint a){
-        //require( a!= address(0),"Not Valid");
-        x=x+a;
-        _;
-    }
-    function increaseX(uint c) public new_modifier(c){
-
     }
 }
