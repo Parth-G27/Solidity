@@ -13,4 +13,7 @@ contract ViewAndPure {
     function add(uint i, uint j) public pure returns (uint) {
         return i + j;
     }
+    function addToX2(uint y) public {
+        x = x + y;
+    }
 }
